@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+
+  - name: postgres 
+    schema: public 
+    database: raw 
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: users 
+        loaded_at_field: created_at
+        description: >
+          Users table 
+      - name: addresses 
+        description: >
+          Addresses table
+      - name: events 
+        loaded_at_field: created_at
+        description: >
+          Events table
+      - name: orders 
+        loaded_at_field: created_at
+        description: >
+          Orders table
+      - name: products 
+        description: >
+          Products table
+      - name: order_items 
+        description: >
+          Order items table 
+      - name: promos 
+        description: >
+          Promos table
