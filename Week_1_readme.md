@@ -10,6 +10,7 @@ from
 ```  
 
 > We have 124 users.  
+<br/>
   
 
 On average, how many orders do we receive per hour?  
@@ -31,7 +32,8 @@ from
 ```  
 
 > On average we receive 7.52 orders per hour.  
-  
+<br/>
+
 
 On average, how long does an order take from being placed to being delivered?  
 
@@ -43,6 +45,7 @@ from
 ```  
 
 > On average, it takes 93.4 hours for an order to being delivered.  
+<br/>
   
 
 How many users have only made one purchase? Two purchases? Three+ purchases?  
@@ -73,7 +76,8 @@ order by
 
 > We have 25 users with 1 order, 28 users with 2 orders and 71 users with 3 orders or more.   
   
-  
+<br/>
+
 On average, how many unique sessions do we have per hour?  
 
 ```sql
