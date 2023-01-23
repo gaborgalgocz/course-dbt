@@ -37,6 +37,8 @@ In general any data about user events related to them engaging with our business
 
 ## Part 2: Tests
 
+! [] (DAG.png)
+
 ## Part 3: Snapshots
 Which orders changed from week 1 to week 2?
 
