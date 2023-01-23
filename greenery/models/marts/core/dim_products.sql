@@ -1,32 +1,8 @@
-{{
-  config(
-    materialized='view'
-  )
-}}
-
-with stg_products as (
-    select * from {{ ref( 'stg_products') }}
-),
-
-stg_order_items as (
-    select * from {{ ref( 'stg_order_items') }}
-),
-
-products_sold as(
-    select 
-        product_guid, 
-        sum(quantity) as total_sold
-    from 
-        stg_order_items
-    group by 
-        product_guid
-)
-
 select 
-    p.product_guid,
-    p.product_name,
-    p.price,
-    p.inventory_count,
-    s.total_sold
-from stg_products p 
-    left join products_sold s on p.product_guid = s.product_guid
+    product_id,
+    name,
+    price,
+    inventory,
+    total_events,
+    total_sessions
+from {{ref('int_product_events')}} 

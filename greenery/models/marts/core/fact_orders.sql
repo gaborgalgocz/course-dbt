@@ -39,6 +39,6 @@ select
     o.delivered_at_utc,
     delivered_at_utc - created_at_utc as delivery_time,
     o.order_status
-from stg_orders o
+from {{ ref( 'stg_orders') }} o
     left join int_products_bought p on o.order_guid = p.order_guid
     left join stg_addresses a on o.address_guid = a.address_guid
