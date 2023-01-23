@@ -34,10 +34,12 @@ What are good indicators of a user who will likely purchase again? What about in
 > The most obvious indicator of purchasing again is if the user is a returning customer already. Other indicators can be if they have visited our site since their last order, maybe even multiple times, if they have an account or even they are logged in. There might be other indicators like they are subscribed to our newsletter or they are following us on social media.<br />
 Indicators for not purchasing again might be previous cancelled or returned orders, contacting customer support with a complaint (like "when will I receive my order"), having unsubscribed from our newsletter or have deleted their user account. <br />
 In general any data about user events related to them engaging with our business can be a good feature to take a look at, not just order events, but website events, customer support events, newsletter events, etc. <br />
+![](DAG.png)
+This needs some more thinking and refactoring. I followed the instructions when creating the marts: core, marketing, product. I've added the intermediate models in a separate folder, not under the marts folder. This follows dbt recommendations and I think it's more sustainable on the long run with more models. 
 
 ## Part 2: Tests
 
-![](DAG.png)
+I've added tests for uniqueness, non-null values and positive values (for price, inventory, etc). I haven't found any failing tests. 
 
 ## Part 3: Snapshots
 Which orders changed from week 1 to week 2?
