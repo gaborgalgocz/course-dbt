@@ -11,5 +11,5 @@ select
   o.distinct_products_bought,
   o.total_products_bought
 from 
-  {{ref('stg_users')}} u
+  {{ref('stg_postgres_users')}} u
   left join {{ref('int_user_orders')}} o using(user_id)

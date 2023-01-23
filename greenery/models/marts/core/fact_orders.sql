@@ -1,44 +1,28 @@
-{{
-  config(
-    materialized='view'
-  )
-}}
-
-with stg_orders as (
-    select * from {{ ref( 'stg_orders') }}
-),
-
-stg_order_items as (
-    select * from {{ ref( 'stg_order_items') }}
-),
-
-stg_addresses as (
-    select * from {{ ref( 'stg_addresses') }}
-),
-
-int_products_bought as (
-    select * from {{ ref( 'int_products_bought') }}
+with items_per_order as (
+    select 
+        order_id,
+        count(quantity) as number_of_items_ordered
+    from 
+        {{ref('stg_postgres_order_items')}}
+    group by
+      order_id
 )
-
 select 
-    o.order_guid,
-    o.user_guid,
-    o.address_guid,
-    a.zipcode,
-    a.state,
-    a.country,
-    o.created_at_utc,
-    o.order_cost,
-    p.products_bought_count,
-    p.items_bought_count,
-    o.shipping_cost,
-    o.order_total,
-    o.tracking_guid,
-    o.shipping_service,
-    o.estimated_delivery_at_utc,
-    o.delivered_at_utc,
-    delivered_at_utc - created_at_utc as delivery_time,
-    o.order_status
-from {{ ref( 'stg_orders') }} o
-    left join int_products_bought p on o.order_guid = p.order_guid
-    left join stg_addresses a on o.address_guid = a.address_guid
+    o.order_id, 
+    o.user_id, 
+    o.promo_id, 
+    o.address_id, 
+    o.created_at, 
+    o.order_cost, 
+    o.shipping_cost, 
+    o.order_total, 
+    o.tracking_id, 
+    o.shipping_service, 
+    o.estimated_delivery_at, 
+    o.delivered_at, 
+    o.status,
+    i.number_of_items_ordered,
+    datediff('hour',o.created_at,o.delivered_at) as hours_till_delivery
+from 
+    {{ref('stg_postgres_orders')}} o
+    left join items_per_order i using(order_id)

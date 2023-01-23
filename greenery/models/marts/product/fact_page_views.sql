@@ -1,13 +1,13 @@
 select 
-    e.event_guid,
-    e.session_guid,
-    e.user_guid,
+    e.event_id,
+    e.session_id,
+    e.user_id,
     e.page_url,
-    e.created_at_utc,
-    e.product_guid,
-    p.product_name,
+    e.created_at,
+    e.product_id,
+    p.name,
     p.price,
-    p.inventory_count
+    p.inventory
 from {{ ref( 'stg_postgres_events') }} e 
-    left join {{ ref( 'stg_postgres_products') }} p using product_guid
+    left join {{ ref( 'stg_postgres_products') }} p using(product_id)
 where event_type = 'page_view'
