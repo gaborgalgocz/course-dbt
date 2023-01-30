@@ -20,23 +20,44 @@ sources:
         loaded_at_field: created_at
         description: >
           Users table 
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 8 
       - name: addresses 
         description: >
           Addresses table
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 5
       - name: events 
         loaded_at_field: created_at
         description: >
           Events table
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 8
       - name: orders 
         loaded_at_field: created_at
         description: >
           Orders table
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 13
       - name: products 
         description: >
           Products table
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 4
       - name: order_items 
         description: >
           Order items table 
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 3
       - name: promos 
         description: >
           Promos table
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 3

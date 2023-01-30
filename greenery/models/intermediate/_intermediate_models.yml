@@ -25,7 +25,7 @@ models:
   - name: int_product_events
     description: "All events associated with our products"
     columns:
-      - name: product_guid
+      - name: product_id
         description: "Product ID"
         tests:
           - unique

@@ -4,73 +4,63 @@ models:
   - name: fact_orders
     description: order details
     columns:
-      - name: order_guid
+      - name: order_id
         tests:
           - unique
           - not_null
-      - name: user_guid
+      - name: user_id
         tests: 
           - not_null
-      - name: address_guid
+      - name: promo_id
+      - name: address_id
         tests: 
           - not_null
-      - name: zipcode
-      - name: state
-      - name: country
-      - name: created_at_utc
+      - name: created_at
         tests:
           - not_null
       - name: order_cost
         tests:
-          - not_null
-          - positive_values
-      - name: products_bought_count
-        tests:
-          - not_null
-          - positive_values
-      - name: items_bought_count
-        tests:
-          - not_null
           - positive_values
       - name: shipping_cost
       - name: order_total
         tests:
           - not_null
           - positive_values
-      - name: tracking_guid
+      - name: tracking_id
       - name: shipping_service
-      - name: estimated_delivery_at_utc
-      - name: delivered_at_utc
-      - name: delivery_estimate_error
-      - name: delivery_time
-      - name: order_status
+      - name: estimated_delivery_at
+      - name: delivered_at
+      - name: status
         tests: 
           - not_null
+      - name: number_of_items_ordered
+      - name: hours_till_delivery
   
   - name: dim_products
     description: product details, including how many times sold
     columns:
-      - name: product_guid
+      - name: product_id
         tests:
           - unique
           - not_null
-      - name: product_name
+      - name: name
       - name: price
         tests:
           - positive_values
           - not_null
-      - name: inventory_count
+      - name: inventory
         tests:
           - not_null
-      - name: total_sold
+      - name: total_events
         tests:
           - positive_values
           - not_null
+      - name: total_sessions
 
   - name: dim_users
     description: user details, including address and number of orders made
     columns:
-      - name: user_guid
+      - name: user_id
         tests:
           - unique
           - not_null
@@ -86,17 +76,13 @@ models:
       - name: phone_number
         tests: 
           - not_null
-      - name: created_at_utc
+      - name: created_at
         tests: 
           - not_null
-      - name: updated_at_utc
-      - name: address_guid
+      - name: updated_at
+      - name: address_id
         tests: 
           - not_null
-      - name: street_address
-      - name: zipcode
-      - name: state
-      - name: country
-      - name: order_count
-        tests: 
-          - not_null
+      - name: orders_placed
+      - name: distinct_products_bought
+      - name: total_products_bought
