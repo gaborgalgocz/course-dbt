@@ -1,3 +1,7 @@
+with product_events as ( 
+    select * from {{ref('int_product_events')}}
+)
+
 select 
     product_id,
     name,
@@ -5,4 +9,4 @@ select
     inventory,
     total_events,
     total_sessions
-from {{ref('int_product_events')}} 
+from product_events

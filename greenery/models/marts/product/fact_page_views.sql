@@ -1,3 +1,11 @@
+with postgres_events as (
+    select * from {{ ref( 'stg_postgres_events') }}
+),
+
+postgres_products as (
+    select * from {{ ref( 'stg_postgres_products') }}
+)
+
 select 
     e.event_id,
     e.session_id,
@@ -8,6 +16,6 @@ select
     p.name,
     p.price,
     p.inventory
-from {{ ref( 'stg_postgres_events') }} e 
-    left join {{ ref( 'stg_postgres_products') }} p using(product_id)
+from postgres_events e 
+    left join postgres_products p using(product_id)
 where event_type = 'page_view'

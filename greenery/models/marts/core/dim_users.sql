@@ -1,3 +1,11 @@
+with postgres_users as (
+  select * from {{ref('stg_postgres_users')}}
+),
+
+user_orders as (
+  select * from {{ref('int_user_orders')}}
+)
+
 select 
   u.user_id, 
   u.first_name, 
@@ -11,5 +19,5 @@ select
   o.distinct_products_bought,
   o.total_products_bought
 from 
-  {{ref('stg_postgres_users')}} u
-  left join {{ref('int_user_orders')}} o using(user_id)
+  postgres_users u
+  left join user_orders o using(user_id)
