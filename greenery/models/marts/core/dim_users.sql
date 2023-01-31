@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with postgres_users as (
   select * from {{ref('stg_postgres_users')}}
 ),

@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with postgres_orders as (
     select * from {{ref('stg_postgres_orders')}}
 ),

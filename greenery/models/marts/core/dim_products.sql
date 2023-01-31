@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with product_events as ( 
     select * from {{ref('int_product_events')}}
 )
