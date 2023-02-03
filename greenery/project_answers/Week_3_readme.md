@@ -53,6 +53,12 @@ from product_conversion_rates;
 ## Part 2: Macros
 I've used a few basic macros, one is aggregating event types per session that I've used in a new model "int_session_events_macro.sql".
 
+## Part 3: Post hooks
+I've added the grant macro and the post hook that has successfully run.
+
+## Part 4: Packages
+I've added dbt-utils, dbt-expectations and codegen. I've used dbt-expectations to test for the number of columns in all sources so I can find out if upstream schema changes add new columns to the source. I've also used the get_column_values macro from dbt-utils and used codegen to generate models.yml. 
+
 ## Part 5: Snapshots
 Which orders changed from week 1 to week 2?
 
