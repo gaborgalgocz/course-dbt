@@ -12,6 +12,7 @@ Our overall conversion rate is 62.5%
 
 What is our conversion rate by product?
 <br />
+I've looked at other people's results and I've seen some differences, I think my results are not correct, maybe something to do with sessions but I haven't figured it out yet.
 ```sql
 select *
 from product_conversion_rates;

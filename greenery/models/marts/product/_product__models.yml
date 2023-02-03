@@ -26,3 +26,18 @@ models:
       - name: inventory
         tests: 
           - positive_values
+
+  - name: product_conversion_rates
+    description: "Calculates product conversion rates for all events"
+    columns:
+      - name: product_name
+        description: ""
+
+      - name: product_views
+        description: ""
+
+      - name: product_purchase_sessions
+        description: ""
+
+      - name: product_conversion_rate
+        description: ""

@@ -1,27 +1,6 @@
 version: 2
 
 models:
-  - name: int_user_orders
-    description: "Orders per user"
-    columns:
-      - name: user_id
-        description: "Primary key"
-        tests:
-          - unique
-          - not_null
-      - name: orders_placed
-        description: "Orders placed"
-        tests:
-          - not_null
-      - name: distinct_products_bought
-        description: "Distinct products bought"
-        tests:
-          - not_null
-      - name: total_products_bought
-        description: "Total products bought"
-        tests:
-          - not_null
-
   - name: int_product_events
     description: "All events associated with our products"
     columns:
@@ -65,4 +44,27 @@ models:
         description: ""
 
       - name: page_view
-        description: ""    
+        description: "" 
+
+  - name: int_user_orders
+    description: "Orders per user"
+    columns:
+      - name: user_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: orders_placed
+        description: "Orders placed"
+        tests:
+          - not_null
+      - name: distinct_products_bought
+        description: "Distinct products bought"
+        tests:
+          - not_null
+      - name: total_products_bought
+        description: "Total products bought"
+        tests:
+          - not_null
+
+   
