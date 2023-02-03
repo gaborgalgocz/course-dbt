@@ -61,7 +61,7 @@ I've added the grant macro and the post hook that has successfully run.
 I've added dbt-utils, dbt-expectations and codegen. I've used dbt-expectations to test for the number of columns in all sources so I can find out if upstream schema changes add new columns to the source. I've also used the get_column_values macro from dbt-utils and used codegen to generate models.yml. 
 
 ## Part 5: Snapshots
-Which orders changed from week 1 to week 2?
+Which orders changed from week 2 to week 3?
 
 ```sql
 select 
