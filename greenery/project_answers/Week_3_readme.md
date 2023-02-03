@@ -8,7 +8,8 @@ from
     fact_conversion_rate;
 ```
 Our overall conversion rate is 62.5%
-<br />
+<br /><br />
+
 What is our conversion rate by product?
 <br />
 ```sql
