@@ -50,6 +50,8 @@ from product_conversion_rates;
 | String of pearls | 64 | 39 | 61% |
 | ZZ Plant | 63 | 34 | 54% |
 
+## Part 2: Macros
+I've used a few basic macros, one is aggregating event types per session that I've used in a new model "int_session_events_macro.sql".
 
 ## Part 5: Snapshots
 Which orders changed from week 1 to week 2?
