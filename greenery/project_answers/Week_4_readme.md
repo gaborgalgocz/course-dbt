@@ -10,6 +10,7 @@ where
     dbt_valid_to > '2023-02-02';
 ``` 
 > The following orders have changed: <br /> 
+
 | ORDER_ID          |
 | ----------------- |
 | 0e9b8ee9-ad0a-42f4-a778-e1dd3e6f6c51 |
