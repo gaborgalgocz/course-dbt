@@ -46,4 +46,23 @@ models:
       - name: total_sessions
         description: "Count of sessions associated with a product"
 
-    
+  - name: int_session_events
+    description: "Generates an aggregate of all events per session, using the aggregate_event_types macro"
+    columns:
+      - name: user_id
+        description: ""
+
+      - name: session_id
+        description: ""
+
+      - name: add_to_cart
+        description: ""
+
+      - name: checkout
+        description: ""
+
+      - name: package_shipped
+        description: ""
+
+      - name: page_view
+        description: ""    
