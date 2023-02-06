@@ -30,7 +30,7 @@ with base as (
 )
 
 select 
-    unique_session,
+    unique_sessions,
     sessions_with_add_to_cart,
     sessions_with_checkout,
     round(div0(sessions_with_add_to_cart, unique_sessions) * 100, 1) ||'%' as add_to_cart_rate,
@@ -40,9 +40,10 @@ from base
 
 ### Product funnel
 
-| ADD_TO_CART_RATE | CONVERSION_RATE |
-|-----------------|-----------------|
-| 80.8%            | 62.5%            |
+| UNIQUE_SESSIONS | SESSIONS_WITH_ADD_TO_CART | SESSIONS_WITH_CHECKOUT | ADD_TO_CART_RATE | CONVERSION_RATE |
+|-----------------|---------------------------|-----------------------|------------------|------------------|
+| 578             | 467                       | 361                   | 80.8%            | 62.5%           |
+
 
 ## Part 3: dbt next steps
 

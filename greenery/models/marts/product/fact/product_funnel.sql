@@ -7,7 +7,7 @@ with base as (
 )
 
 select 
-    unique_session,
+    unique_sessions,
     sessions_with_add_to_cart,
     sessions_with_checkout,
     round(div0(sessions_with_add_to_cart, unique_sessions) * 100, 1) ||'%' as add_to_cart_rate,
